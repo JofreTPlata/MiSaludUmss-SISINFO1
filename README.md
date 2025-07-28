@@ -3,6 +3,8 @@
 Este es un sistema de escritorio desarrollado en **Python** con interfaz gráfica basada en `customtkinter`, orientado a permitir a estudiantes y usuarios de la Universidad Mayor de San Simón (UMSS) **reservar, visualizar y cancelar fichas médicas**, así como generar comprobantes de reserva.
 
 ---
+### Pantalla de Login
+![Login](imagenes/Login.png)
 
 ## 📂 Estructura del proyecto
 
