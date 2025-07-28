@@ -100,8 +100,8 @@ def generar_comprobante(usuario, ficha):
 # ------------------ INTERFACES ------------------
 
 class LoginWindow(ctk.CTk):
-    def _init_(self):
-        super()._init_()
+    def __init__(self):
+        super().__init__()
         self.title("MiSalud UMSS - Ingreso")
         self.geometry("400x300")
 
@@ -137,8 +137,8 @@ class LoginWindow(ctk.CTk):
             messagebox.showerror("Error", "El usuario ya existe")
 
 class MenuPrincipal(ctk.CTk):
-    def _init_(self, usuario):
-        super()._init_()
+    def __init__(self, usuario):
+        super().__init__()
         self.usuario = usuario
         self.title(f"Bienvenido {usuario}")
         self.geometry("400x320")
@@ -159,8 +159,8 @@ class MenuPrincipal(ctk.CTk):
         CancelarWindow(self.usuario)
 
 class ReservaWindow(ctk.CTkToplevel):
-    def _init_(self, usuario):
-        super()._init_()
+    def __init__(self, usuario):
+        super().__init__()
         self.title("Reservar Ficha")
         self.geometry("400x400")  # tamaño más grande para el calendario
         self.usuario = usuario
@@ -198,8 +198,8 @@ class ReservaWindow(ctk.CTkToplevel):
         self.destroy()
 
 class FichasWindow(ctk.CTkToplevel):
-    def _init_(self, usuario):
-        super()._init_()
+    def __init__(self, usuario):
+        super().__init__()
         self.usuario = usuario
         self.title("Fichas Reservadas")
         self.geometry("400x300")
@@ -218,8 +218,8 @@ class FichasWindow(ctk.CTkToplevel):
         messagebox.showinfo("Comprobante", f"Guardado en:\n{archivo}")
 
 class CancelarWindow(ctk.CTkToplevel):
-    def _init_(self, usuario):
-        super()._init_()
+    def __init__(self, usuario):
+        super().__init__()
         self.usuario = usuario
         self.title("Cancelar Ficha")
         self.geometry("400x220")
@@ -253,7 +253,7 @@ class CancelarWindow(ctk.CTkToplevel):
 
 # ------------------ INICIO ------------------
 
-if _name_== "_main_":
+if __name__ == "__main__":
     crear_directorio()
     app = LoginWindow()
     app.mainloop()
