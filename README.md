@@ -7,7 +7,7 @@ Este es un sistema de escritorio desarrollado en **Python** con interfaz gráfic
 ![Login](imagenes/Login.png)
 ![Menu](imagenes/Menu.png)
 ![Historial](imagenes/Historial.png)
-
+![Cancelar](imagenes/Cancelar.png)
 
 ## 📂 Estructura del proyecto
 
