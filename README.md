@@ -5,8 +5,11 @@ Este es un sistema de escritorio desarrollado en **Python** con interfaz gráfic
 ---
 ### Pantalla de Login
 ![Login](imagenes/Login.png)
+### Pantalla de Menu
 ![Menu](imagenes/Menu.png)
+### Pantalla de Historial
 ![Historial](imagenes/Historial.png)
+### Pantalla de Cancelar
 ![Cancelar](imagenes/Cancelar.png)
 
 ## 📂 Estructura del proyecto
