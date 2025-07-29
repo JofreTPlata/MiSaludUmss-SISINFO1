@@ -103,7 +103,7 @@ class LoginWindow(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("MiSalud UMSS - Ingreso")
-        self.geometry("400x300")
+        self.geometry("500x500")  # <-- Cambia aquí
 
         ctk.CTkLabel(self, text="Usuario:").pack(pady=(20, 0))
         self.usuario_entry = ctk.CTkEntry(self)
@@ -141,7 +141,7 @@ class MenuPrincipal(ctk.CTk):
         super().__init__()
         self.usuario = usuario
         self.title(f"Bienvenido {usuario}")
-        self.geometry("400x320")
+        self.geometry("500x500")  # <-- Cambia aquí
 
         ctk.CTkLabel(self, text="Menú Principal", font=("Arial", 18)).pack(pady=15)
         ctk.CTkButton(self, text="Reservar Ficha", command=self.abrir_reserva).pack(pady=5)
@@ -162,7 +162,7 @@ class ReservaWindow(ctk.CTkToplevel):
     def __init__(self, usuario):
         super().__init__()
         self.title("Reservar Ficha")
-        self.geometry("400x400")  # tamaño más grande para el calendario
+        self.geometry("500x500")
         self.usuario = usuario
 
         ctk.CTkLabel(self, text="Reservar Ficha Médica", font=("Arial", 18)).pack(pady=10)
@@ -184,6 +184,9 @@ class ReservaWindow(ctk.CTkToplevel):
 
         ctk.CTkButton(self, text="Reservar Ficha", command=self.reservar).pack(pady=10)
 
+        self.focus()
+        self.grab_set()
+
     def reservar(self):
         fecha = self.cal.get_date()
         hora = self.hora_combo.get()
@@ -202,7 +205,7 @@ class FichasWindow(ctk.CTkToplevel):
         super().__init__()
         self.usuario = usuario
         self.title("Fichas Reservadas")
-        self.geometry("400x300")
+        self.geometry("500x500")  # <-- Cambia aquí
 
         ctk.CTkLabel(self, text="Tus fichas reservadas:").pack(pady=5)
         fichas = leer_fichas(usuario)
@@ -213,6 +216,9 @@ class FichasWindow(ctk.CTkToplevel):
         if fichas:
             ctk.CTkButton(self, text="Generar Comprobante", command=lambda: self.generar(fichas[-1])).pack(pady=10)
 
+        self.focus()
+        self.grab_set()
+
     def generar(self, ficha):
         archivo = generar_comprobante(self.usuario, ficha)
         messagebox.showinfo("Comprobante", f"Guardado en:\n{archivo}")
@@ -222,7 +228,7 @@ class CancelarWindow(ctk.CTkToplevel):
         super().__init__()
         self.usuario = usuario
         self.title("Cancelar Ficha")
-        self.geometry("400x220")
+        self.geometry("500x500")  # <-- Cambia aquí
 
         ctk.CTkLabel(self, text="Selecciona una ficha para cancelar:").pack(pady=10)
 
@@ -236,6 +242,9 @@ class CancelarWindow(ctk.CTkToplevel):
         self.combo.pack(pady=10)
 
         ctk.CTkButton(self, text="Cancelar Ficha Seleccionada", command=self.cancelar).pack(pady=15)
+
+        self.focus()
+        self.grab_set()
 
     def cancelar(self):
         seleccion = self.combo.get()
@@ -257,3 +266,5 @@ if __name__ == "__main__":
     crear_directorio()
     app = LoginWindow()
     app.mainloop()
+
+    #proyecto finalizado
