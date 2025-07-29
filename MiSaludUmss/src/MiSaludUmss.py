@@ -4,12 +4,8 @@ import customtkinter as ctk
 from tkinter import messagebox
 from tkcalendar import Calendar
 
-# ------------------ CONFIGURACIÓN INICIAL ------------------
-
 ctk.set_appearance_mode("system")
 ctk.set_default_color_theme("blue")
-
-# ------------------ FUNCIONES DE ARCHIVO ------------------
 
 def crear_directorio():
     os.makedirs("datos", exist_ok=True)
@@ -97,13 +93,11 @@ def generar_comprobante(usuario, ficha):
         f.write(contenido)
     return archivo
 
-# ------------------ INTERFACES ------------------
-
 class LoginWindow(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("MiSalud UMSS - Ingreso")
-        self.geometry("500x500")  # <-- Cambia aquí
+        self.geometry("500x500")
 
         ctk.CTkLabel(self, text="Usuario:").pack(pady=(20, 0))
         self.usuario_entry = ctk.CTkEntry(self)
@@ -141,7 +135,7 @@ class MenuPrincipal(ctk.CTk):
         super().__init__()
         self.usuario = usuario
         self.title(f"Bienvenido {usuario}")
-        self.geometry("500x500")  # <-- Cambia aquí
+        self.geometry("500x500")
 
         ctk.CTkLabel(self, text="Menú Principal", font=("Arial", 18)).pack(pady=15)
         ctk.CTkButton(self, text="Reservar Ficha", command=self.abrir_reserva).pack(pady=5)
@@ -205,7 +199,7 @@ class FichasWindow(ctk.CTkToplevel):
         super().__init__()
         self.usuario = usuario
         self.title("Fichas Reservadas")
-        self.geometry("500x500")  # <-- Cambia aquí
+        self.geometry("500x500")
 
         ctk.CTkLabel(self, text="Tus fichas reservadas:").pack(pady=5)
         fichas = leer_fichas(usuario)
@@ -228,7 +222,7 @@ class CancelarWindow(ctk.CTkToplevel):
         super().__init__()
         self.usuario = usuario
         self.title("Cancelar Ficha")
-        self.geometry("500x500")  # <-- Cambia aquí
+        self.geometry("500x500")
 
         ctk.CTkLabel(self, text="Selecciona una ficha para cancelar:").pack(pady=10)
 
@@ -260,11 +254,8 @@ class CancelarWindow(ctk.CTkToplevel):
         else:
             messagebox.showerror("Error", "No se pudo cancelar la ficha seleccionada")
 
-# ------------------ INICIO ------------------
-
 if __name__ == "__main__":
     crear_directorio()
     app = LoginWindow()
     app.mainloop()
 
-    
